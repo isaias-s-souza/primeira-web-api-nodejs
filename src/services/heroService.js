@@ -11,3 +11,5 @@ class HeroService {
         return this.heroRepository.create(data)
     }
 }
+
+module.exports = HeroService
