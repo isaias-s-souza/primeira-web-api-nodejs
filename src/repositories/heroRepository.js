@@ -32,8 +32,8 @@ const heroRepository = new HeroRepository({
 })      
 
 
-heroRepository.create({id: 2, name: 'Chapolin'})
-    .then(console.log)
-    .catch(error => console.log('error', error))
+// heroRepository.create({id: 2, name: 'Chapolin'})
+//     .then(console.log)
+//     .catch(error => console.log('error', error))
 
 // heroRepository.find(1).then(console.log).catch(error => console.log('error', error))
