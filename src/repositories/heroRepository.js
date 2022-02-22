@@ -14,6 +14,7 @@ class HeroRepository {
 
         return all.find(({ id }) => itemId === id)
     }
+
     async create(data){
         const currentFile = await this._currentFileContent()
         currentFile.push(data)
@@ -29,6 +30,7 @@ module.exports = HeroRepository
 const heroRepository = new HeroRepository({
     file: './../../database/data.json'
 })      
+
 
 heroRepository.create({id: 2, name: 'Chapolin'})
     .then(console.log)
