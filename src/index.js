@@ -14,7 +14,7 @@ const routes = {
     },
     default: (request, response) => {
         response.write('Hello!') 
-        response.end()
+        response.end()   
     }
 }
 
