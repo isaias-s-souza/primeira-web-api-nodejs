@@ -1,0 +1,25 @@
+{
+  "name": "primeira-web-api-nodejs",
+  "version": "1.0.0",
+  "description": "Este projeto foi feito a fim de me imergir no mundo javascript, e conhecer um pouco sobre NodeJs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "sh script.sh",
+    "start": "node src/index.js",
+    "dev": "npx nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaias-s-souza/primeira-web-api-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isaias-s-souza/primeira-web-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/isaias-s-souza/primeira-web-api-nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
