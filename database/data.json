@@ -1,1 +1,20 @@
-[{"id":1,"name":"XuxaDaSilva","age":100,"power":"Ancient"}]
+[
+    {
+        "id": 1,
+        "name": "XuxaDaSilva",
+        "age": 100,
+        "power": "Ancient"
+    },
+    {
+        "id": 1645707321255,
+        "name": "Chapolin",
+        "age": 100,
+        "power": "Strength"
+    },
+    {
+        "id": 1645707388356,
+        "name": "Chapolin",
+        "age": 100,
+        "power": "Strength"
+    }
+]
