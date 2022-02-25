@@ -1,3 +1,4 @@
+// Classe HeroService para manipular o que foi instanciado na repository
 class HeroService {
     constructor({heroRepository}){
         this.heroRepository = heroRepository
@@ -12,4 +13,5 @@ class HeroService {
     }
 }
 
+// expôe classe HeroService para outros módulos
 module.exports = HeroService

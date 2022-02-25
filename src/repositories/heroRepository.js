@@ -1,4 +1,5 @@
-const { readFile, writeFile } = require('fs/promises')
+const { readFile, writeFile } = require('fs/promises') // importa a api de manipulação de arquivos assíncrona
+// Classe repository de manipulação do json
 class HeroRepository {
     constructor({file}){
         this.file = file
@@ -25,8 +26,10 @@ class HeroRepository {
     }
 }
 
+// Expõe classe HeroRepository para outros módulos
 module.exports = HeroRepository
 
+// instancia a repository com json do projeto
 const heroRepository = new HeroRepository({
     file: './../../database/data.json'
 })      

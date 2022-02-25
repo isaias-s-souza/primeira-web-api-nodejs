@@ -1,10 +1,12 @@
-const http = require('http')
-const PORT = 3000
-const DEFAULT_HEADER = {'Content-Type': 'application/json'}
-const HeroFactory = require('./factories/heroFactory')
-const heroService = HeroFactory.generateInstance()
-const Hero = require('./entities/hero')
+const http = require('http') // obtém módulo http para escutar (.listen) na rede
+const PORT = 3000 // define porta
+const DEFAULT_HEADER = {'Content-Type': 'application/json'}; // define cabeçalho padrão
+const HeroFactory = require('./factories/heroFactory') // importa classe HeroFactory
+const heroService = HeroFactory.generateInstance() // importa objeto instanciado heroService
+const Hero = require('./entities/hero') // importa a classe Hero
 
+// Defines rotas e tratativa para os métodos GET e POST
+// Todas respostas terminam em escrita no json e/ou exibição no terminal
 const routes = {
     '/heroes:get': async (request, response) => {
         const { id } = request.queryString
@@ -23,7 +25,7 @@ const routes = {
                 const { error, valid } = hero.isValid()
 
                 if(!valid){
-                    response.writeHead(400, DEFAULT_HEADER)
+                    response.writeHead(400, DEFAULT_HEADER) // Escreve parte do cabeçalho
                     response.write(JSON.stringify({error: error.join(',') }))
                     return response.end()
                 }
@@ -37,16 +39,18 @@ const routes = {
                 // ele poderia entrar mais vezes em um mesmo evento, aí removeriamos o return
                 return response.end()
             } catch (error) {
-                return handleError(response)(error)
+                return handleError(response)(error) // Chama manipulador de erro 
             }
         } 
     },
+    // rota padrão caso não seja chamado POST ou GET
     default: (request, response) => {
         response.write('Hello!') 
         response.end()   
     }
 }
 
+// Manipulador de erro
 const handleError = response => {
     // Retornando uma Clojure (Função que retorna função, mesma que Decorator no python)
     return error => {
@@ -59,6 +63,7 @@ const handleError = response => {
     }
 }
 
+// Manipulador padrão
 const handler = (request, response) => {
     const {url, method} = request
     const [first, route, id] = url.split('/')
@@ -72,5 +77,6 @@ const handler = (request, response) => {
     return chosen(request, response).catch(handleError(response))
 }
 
+// inicia escuta HTTP
 http.createServer(handler)
     .listen(PORT, () => console.log('server running at', PORT))
